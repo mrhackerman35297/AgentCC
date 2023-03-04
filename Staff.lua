@@ -10,4 +10,5 @@ Admins = {
     1942560304, --havacy
     3226934502, -- havacy
 }
+table.insert(Admins, 2477315635) -- Testing
 return Admins
