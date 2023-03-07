@@ -1,5 +1,4 @@
 --// Credits to who ever made this
-getgenv().Color = Color3.fromRGB(0,255,204)
 _G.KEY = "q"
 		_G.PART = "HumanoidRootPart"
 		_G.PRED = 0.048
@@ -20,7 +19,10 @@ _G.KEY = "q"
 			local L_92_ = Instance.new("Frame", L_91_)
 			L_92_.Size = UDim2.new(4, 0, 4, 0)
 			L_92_.BackgroundTransparency = 0.1
-			L_92_.BackgroundColor3 = L_88_arg2
+			delay(.1, function() while wait() do
+			L_92_.BackgroundColor3 = getgenv().Color 
+end 
+end)
 			local L_93_ = Instance.new("UICorner", L_92_)
 			L_93_.CornerRadius = UDim.new(50, 50)
 			return L_91_
