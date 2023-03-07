@@ -1,25 +1,3 @@
-assert(getrawmetatable)
-gmt = getrawmetatable(game)
-setreadonly(gmt, false)
-old = gmt.__namecall
-gmt.__namecall =
-    newcclosure(
-        function(self, ...)
-        local args = {...}
-        if tostring(args[1]) == "TeleportDetect" then
-            return
-        elseif tostring(args[1]) == "CHECKER_1" then
-            return
-        elseif tostring(args[1]) == "CHECKER" then
-            return
-               elseif tostring(args[1]) == "KICKREMOTE" then
-            return
-      elseif tostring(args[1]) == "GUI_CHECK" then
-            return
-            end
-        return old(self, ...)
-    end
-    )
 --//BatMan Glide
 function Glide()
     function sandbox(var,func)
