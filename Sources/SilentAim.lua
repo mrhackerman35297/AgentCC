@@ -1,4 +1,7 @@
 getgenv().SilentAimVisible = true
+                _G.PART = "HumanoidRootPart"
+                _G.PRED = 0.048
+                _G.Frame = Vector3.new(0, 0.53, 0)
                 local players = game.GetService(game, "Players")
                 local guiservice = game.GetService(game, "GuiService")
                 local runservice = game.GetService(game, "RunService")
