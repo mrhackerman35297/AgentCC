@@ -113,6 +113,7 @@ local DaHoodSettings = {
 
 Mouse.KeyDown:Connect(function(KeyPressed)
 	if KeyPressed == string.lower(Toggle_Key) then
+	      if getgenv().CamToggle == true then
 		pcall(function()
 			if Locking == false then
 				Locking = true
@@ -122,12 +123,7 @@ Mouse.KeyDown:Connect(function(KeyPressed)
 				Render_Lock:Disconnect()
 			end
 		end)
+				end
 	end
 end)
 
-
-Mouse.KeyDown:Connect(function(Rejoin)
-	if Rejoin == string.lower(Rejoin_Key) then
-		game:GetService("TeleportService"):Teleport(game.PlaceId, LocalPlayer) task.wait()
-	end
-end);
