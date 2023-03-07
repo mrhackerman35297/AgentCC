@@ -157,3 +157,8 @@
         end
         game.Players.LocalPlayer.Character:WaitForChild("FULLY_LOADED_CHAR")
         Fly()
+game.Players.LocalPlayer.CharacterAdded:connect(function()
+    game.Players.LocalPlayer.Character:WaitForChild("FULLY_LOADED_CHAR")
+    wait(1)
+   Fly()
+end)
