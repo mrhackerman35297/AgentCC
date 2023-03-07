@@ -13,4 +13,4 @@ function AntiCheat()
     end
   end 
 end
-game.Players.KicakOkayer.CharacterAdded:Connect(AntiCheat)
+game.Players.LocalPlayer.CharacterAdded:Connect(AntiCheat)
