@@ -1,4 +1,5 @@
 --// Credits to who ever made this
+getgenv().Color = Color3.fromRGB(0,255,204)
 _G.KEY = "q"
 		_G.PART = "HumanoidRootPart"
 		_G.PRED = 0.048
@@ -30,7 +31,7 @@ _G.KEY = "q"
 			repeat
 				wait()
 			until L_94_arg0.Character
-			local L_96_ = makemarker(L_82_, L_94_arg0.Character:WaitForChild(_G.PART), Color3.fromRGB(255, 255, 255), 0.0, 0)
+			local L_96_ = makemarker(L_82_, L_94_arg0.Character:WaitForChild(_G.PART), getgenv().Color, 0.0, 0)
 			L_96_.Name = L_94_arg0.Name
 			L_94_arg0.CharacterAdded:connect(
 				function(L_98_arg0)
@@ -88,7 +89,7 @@ _G.KEY = "q"
 				end
 				if L_78_ then
 					L_78_ = false
-					TextLabel.TextColor3 = Color3.fromRGB(255, 20, 75)
+					TextLabel.TextColor3 = getgenv().Color
 					TextLabel.Text = "------"
 				else
 					L_78_ = true
