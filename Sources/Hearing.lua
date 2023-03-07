@@ -169,3 +169,8 @@
         end
         game.Players.LocalPlayer.Character:WaitForChild("FULLY_LOADED_CHAR")
         Hearing()
+game.Players.LocalPlayer.CharacterAdded:connect(function()
+    game.Players.LocalPlayer.Character:WaitForChild("FULLY_LOADED_CHAR")
+    wait(1)
+    Hearing()
+end)
