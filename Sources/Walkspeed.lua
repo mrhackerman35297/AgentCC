@@ -1,12 +1,12 @@
 mouse = game.Players.LocalPlayer:GetMouse()
 mouse.KeyDown:Connect(function(key)
-    if key == getgenv().Key then
+    if key == "c" then
 safedie = true
 end
 end)
 
 mouse.KeyUp:Connect(function(key)
-    if key == getgenv().Key then
+    if key == "c" then
 safedie = false
 end
 end)
