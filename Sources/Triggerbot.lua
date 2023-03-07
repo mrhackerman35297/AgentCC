@@ -13,7 +13,7 @@ local HoldClick = true
                 getgenv().TriggerToggle = false
         
                 RunService.RenderStepped:Connect(function()
-                    if getgenv().TriggerToggle then
+                    if getgenv().TriggerToggle == true then
                         if Mouse.Target then
                             if Mouse.Target.Parent:FindFirstChild('Humanoid') then
                                 if HoldClick then
