@@ -36,7 +36,7 @@ getgenv().SilentAimFOV = 50
                             circle.Visible = false
                         end
                         circle.Thickness = 2
-                        circle.Color = Color3.fromRGB(168, 255, 29)
+                        circle.Color = getgenv().Color
                         circle.NumSides = 90
                         circle.Radius = (getgenv().SilentAimFOV * 6) / 2
                         circle.Filled = false
