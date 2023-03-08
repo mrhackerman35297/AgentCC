@@ -1,3 +1,3 @@
 Credits to the people who made some of this
 I do not claim credit for some of these files...
-\nFeel free to use
+[Feel free to use]
