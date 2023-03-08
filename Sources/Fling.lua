@@ -23,7 +23,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 			if game.Players.LocalPlayer.Character then
 				game.Players.LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid'):ChangeState(11)
 				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(FlingTorso.Position.X + math.random(-dis,dis) + xchange, FlingTorso.Position.Y, FlingTorso.Position.Z + math.random(-dis,dis) + zchange) * CFrame.Angles(math.rad(game.Players.LocalPlayer.Character.HumanoidRootPart.Orientation.X + 350),math.rad(game.Players.LocalPlayer.Character.HumanoidRootPart.Orientation.Y + 200),math.rad(game.Players.LocalPlayer.Character.HumanoidRootPart.Orientation.Z + 240))
-				game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(math.random(900000,900000000),math.random(900000,900000000),math.random(900000,900000000))
+				game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(500000,500000,500000)
 			end
 		end
 	end
