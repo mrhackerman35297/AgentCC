@@ -1,5 +1,7 @@
-getgenv().SilentAimVisible = true
-getgenv().SilentAimFOV = 55
+        getgenv().SilentAimBool = true
+        getgenv().SilentAimFOV = 55
+        getgenv().SilentAimTarget = nil
+        getgenv().Minus = 60
                 _G.PART = "HumanoidRootPart"
                 _G.PRED = 0.048
                 _G.Frame = Vector3.new(0, 0.53, 0)
