@@ -85,7 +85,7 @@ while wait(0.5) do
                     if vv.Name ~= "MoneyDrop" then 
                         continue 
                     end 
-                    if (plr.Character.HumanoidRootPart.Position - vv.Position).Magnitude > 25 then 
+                    if (plr.Character.HumanoidRootPart.Position - vv.Position).Magnitude > 12 then 
                         continue 
                     end 
                     vv.Name = "Grabbing" 
