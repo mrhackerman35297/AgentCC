@@ -66,8 +66,7 @@ end
 game:GetService("RunService").Heartbeat:Connect(function()
     if getgenv().GunBeam == true then
         if game.Players[getgenv().Beam].Character:FindFirstChildWhichIsA('Humanoid') then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[getgenv().Beam].Character.HumanoidRootPart.CFrame * CFrame.new(0,9,9)
-            FindTool()
+
    local gun = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool")
         if gun.Ammo.Value == 0  then 
             if game.Players.LocalPlayer.DataFolder.Inventory[gun.Name].Value == "0" then
@@ -84,6 +83,8 @@ game:GetService("RunService").Heartbeat:Connect(function()
                         end
                     end
                 else
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[getgenv().Beam].Character.HumanoidRootPart.CFrame * CFrame.new(0,9,9)
+            FindTool()
                     game.ReplicatedStorage.MainEvent:FireServer("Reload", gun)
                     repeat wait() until gun.Ammo ~= 0
             end
