@@ -79,7 +79,8 @@ while wait(0.5) do
                         plr.Character.Combat:Deactivate() 
                         wait(1) 
                     end) 
-                until v.Humanoid.Health <= 0 wait(0.1) or getgenv().CashFarm == false
+                until v.Humanoid.Health <= 0  or getgenv().CashFarm == false
+                wait(0.1)
                 for ii,vv in pairs(game.Workspace.Ignored.Drop:GetChildren()) do 
                     if vv.Name ~= "MoneyDrop" then 
                         continue 
