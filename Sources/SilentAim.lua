@@ -1,6 +1,7 @@
         getgenv().SilentAimBool = true
         getgenv().SilentAimFOV = 55
         getgenv().SilentAimTarget = nil
+getgenv().SilentAimVisible = true
         getgenv().Minus = 60
                 _G.PART = "HumanoidRootPart"
                 _G.PRED = 0.048
