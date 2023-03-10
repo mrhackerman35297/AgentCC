@@ -5,6 +5,7 @@ local gun = plr.Character:FindFirstChildOfClass("Tool")
 local lastgun = gun.Name
 getgenv().GunFarm = true
 getgenv().FarmPart = nil
+local buyingammo = false
 repeat wait() until plr.Character:FindFirstChild("FULLY_LOADED_CHAR")
 --SEAT DESTRUCTIONNNNN
 for i,v in pairs(game.Workspace:GetDescendants()) do
@@ -76,13 +77,16 @@ while wait(0.5) do
                 spawn(function()
                     while v.Humanoid.Health > 0 do
                         wait()
-                        pcall(function()plr.Character.HumanoidRootPart.CFrame = v.Head.CFrame * CFrame.new(0.3, 0, 5)end)
+                        if buyingammo == true then
+                            pcall(function()plr.Character.HumanoidRootPart.CFrame = v.Head.CFrame * CFrame.new(0.3, 0, 5)end)
+                        end
                     end
                 end)
                 repeat
                     wait(0.5)
                     if gun.Ammo.Value == 0 then 
                         if plr.DataFolder.Inventory[gun.Name].Value == "0" then
+                            buyingammo = true
                             for i, v in pairs(game.Workspace.Ignored.Shop:GetChildren()) do
                                 if string.find(v.Name, string.sub(string.gsub(gun.Name, "]", " Ammo"), 2, 15)) then
                                     plr.Character.Humanoid:UnequipTools()
@@ -98,6 +102,7 @@ while wait(0.5) do
                             repeat wait() until gun.Ammo ~= 0
                         end
                     else
+                        buyingammo = false
                         pcall(function()
                             getgenv().FarmPart = v.Head.Position
                             wait()
