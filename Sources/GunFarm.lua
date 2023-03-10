@@ -77,14 +77,14 @@ while wait(0.5) do
                 spawn(function()
                     while v.Humanoid.Health > 0 do
                         wait()
-                        if buyingammo == false then
+                        if buyingammo == false and getgenv().GunFarm == true then
                             pcall(function()plr.Character.HumanoidRootPart.CFrame = v.Head.CFrame * CFrame.new(0.3, 0, 5)end)
                         end
                     end
                 end)
                 repeat
                     wait(0.5)
-                    if gun.Ammo.Value == 0 then 
+                    if gun.Ammo.Value == 0 and getgenv().GunFarm == true then 
                         if plr.DataFolder.Inventory[gun.Name].Value == "0" then
                             buyingammo = true
                             for i, v in pairs(game.Workspace.Ignored.Shop:GetChildren()) do
