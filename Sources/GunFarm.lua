@@ -47,9 +47,6 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
     game:GetService("VirtualUser"):Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
 --network ownership
-game:GetService('RunService').Stepped:connect(function()
-	setsimulationradius(math.huge)
-end)
 
 local mt = getrawmetatable(game)
 local backupnamecall = mt.__namecall
