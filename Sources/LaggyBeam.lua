@@ -4,7 +4,6 @@ xpcall(function()
     old = hookmetamethod(game, "__namecall" ,newcclosure(function(self,...)
         if not checkcaller() then return old(self,...) end
         local args = {...}
-
         if self == PhysicsService then
             if getnamecallmethod() == "RenameCollisionGroup" then
                 return	RenameCollisionGroup(args[1],args[2])
@@ -16,7 +15,6 @@ xpcall(function()
                 return CollisionGroupSetCollidable(args[1],args[2],args[3])
             end
         end 
-
         return old(self,...)
     end))
 end, function()
@@ -28,7 +26,6 @@ end, function()
     mt.__namecall = newcclosure(function(self, ...)
         if not checkcaller() then return old(self,...) end
         local args = {...}
-
         if self == PhysicsService then
             if getnamecallmethod() == "RenameCollisionGroup" then
                 return	RenameCollisionGroup(args[1],args[2])
@@ -40,10 +37,8 @@ end, function()
                 return CollisionGroupSetCollidable(args[1],args[2],args[3])
             end
         end 
-
         return old(self,...)
     end)
-
     setreadonly(mt,true)
 end)
 function FindTool()
@@ -52,50 +47,30 @@ function FindTool()
             if v:FindFirstChild('Ammo') then
                 v.Parent = game.Players.LocalPlayer.Character
                 wait()
+            else
+                AGENTUI:Noti("Please Buy a gun in QuickBuy")
             end
         end
     end
-    for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-        if v:IsA("Tool") then
-            if v:FindFirstChild('Ammo') then
-                game.Players.LocalPlayer.Character:FindFirstChild(v.Name):Activate()
-            end
-        end
-    end
-end
-game:GetService("RunService").Heartbeat:Connect(function()
-    if getgenv().GunBeam == true then
+@@ -70,7 +68,14 @@ game:GetService("RunService").Heartbeat:Connect(function()
         if game.Players[getgenv().Beam].Character:FindFirstChildWhichIsA('Humanoid') then
-
-   local gun = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool")
-        if gun.Ammo.Value == 0  then 
-            if game.Players.LocalPlayer.DataFolder.Inventory[gun.Name].Value == "0" then
-                    getgenv().save = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
-                    for i, v in pairs(game.Workspace.Ignored.Shop:GetChildren()) do
-                        if string.find(v.Name, string.sub(string.gsub(gun.Name, "]", " Ammo"), 2, 15)) then
-                            game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
-                            repeat wait()
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Head.CFrame
-                            fireclickdetector(v.ClickDetector)
-                            until tonumber(game.Players.LocalPlayer.DataFolder.Inventory[gun.Name].Value) >= 100
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(getgenv().save)
-                            game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild(gun.Name))
-                        end
-                    end
-                else
-                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[getgenv().Beam].Character.HumanoidRootPart.CFrame * CFrame.new(0,9,9)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[getgenv().Beam].Character.HumanoidRootPart.CFrame * CFrame.new(0,9,9)
             FindTool()
-                    game.ReplicatedStorage.MainEvent:FireServer("Reload", gun)
-                    repeat wait() until gun.Ammo ~= 0
-            end
-        end
+        else
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool") then
+					if game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool"):FindFirstChild("Ammo") then
+						if game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool"):FindFirstChild("Ammo").Value <= 0 then
+							game:GetService("ReplicatedStorage").MainEvent:FireServer("Reload", game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool")) 
+							wait(1)
+						end
+					end
+				end
         end
         game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
     end
 end)
 setfflag("HumanoidParallelRemoveNoPhysics", "False")
 setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False") 
-
                 --------------------- REV BEAM ---------------------------
                 _G.PART = "HumanoidRootPart"
                 _G.PRED = 0.048
