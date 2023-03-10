@@ -77,7 +77,7 @@ while wait(0.5) do
                 spawn(function()
                     while v.Humanoid.Health > 0 do
                         wait()
-                        if buyingammo == true then
+                        if buyingammo == false then
                             pcall(function()plr.Character.HumanoidRootPart.CFrame = v.Head.CFrame * CFrame.new(0.3, 0, 5)end)
                         end
                     end
