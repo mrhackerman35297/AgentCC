@@ -40,9 +40,6 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
     game:GetService("VirtualUser"):Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame) 
 end)
 
-game:GetService('RunService').Stepped:connect(function() 
-    setsimulationradius(math.huge) 
-end)
 
 local function CompleteHospitalJob(Colour,Patient) 
     repeat 
