@@ -41,15 +41,6 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
 end)
 
 
-local function CompleteHospitalJob(Colour,Patient) 
-    repeat 
-        fireclickdetector(game.Workspace.Ignored.HospitalJob[Colour].ClickDetector) 
-        wait(0.1) if Patient:FindFirstChild("ClickDetector") then 
-            fireclickdetector(Patient.ClickDetector) 
-        end 
-    until Patient.Name == "Thank you!" or Patient.Name == "Wrong bottle!" 
-end
-
 while wait(0.5) do 
     if getgenv().CashFarm == true then 
         for i,v in pairs(game.Workspace.Cashiers:GetChildren()) do 
@@ -66,6 +57,7 @@ while wait(0.5) do
                     end 
                 end) 
                 repeat 
+                    if getgenv().CashFarm == true then
                     pcall(function()
                         plr.Character.Humanoid:EquipTool(plr.Backpack.Combat)
                     end) 
@@ -76,6 +68,7 @@ while wait(0.5) do
                         plr.Character.Combat:Deactivate() 
                         wait(1) 
                     end) 
+                        end
                 until v.Humanoid.Health <= 0  or getgenv().CashFarm == false
                 wait(0.1)
                 for ii,vv in pairs(game.Workspace.Ignored.Drop:GetChildren()) do 
