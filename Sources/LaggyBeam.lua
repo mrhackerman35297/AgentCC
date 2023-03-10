@@ -68,14 +68,26 @@ game:GetService("RunService").Heartbeat:Connect(function()
         if game.Players[getgenv().Beam].Character:FindFirstChildWhichIsA('Humanoid') then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[getgenv().Beam].Character.HumanoidRootPart.CFrame * CFrame.new(0,9,9)
             FindTool()
-            if game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool") then
-					if game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool"):FindFirstChild("Ammo") then
-						if game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool"):FindFirstChild("Ammo").Value <= 0 then
-							game:GetService("ReplicatedStorage").MainEvent:FireServer("Reload", game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool")) 
-							wait(1)
-						end
-					end
-				end
+   local gun = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool")
+        if gun.Ammo.Value == 0  then 
+            if game.Players.LocalPlayer.DataFolder.Inventory[gun.Name].Value == "0" then
+                    getgenv().save = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+                    for i, v in pairs(game.Workspace.Ignored.Shop:GetChildren()) do
+                        if string.find(v.Name, string.sub(string.gsub(gun.Name, "]", " Ammo"), 2, 15)) then
+                            game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
+                            repeat wait()
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Head.CFrame
+                            fireclickdetector(v.ClickDetector)
+                            until tonumber(game.Players.LocalPlayer.DataFolder.Inventory[gun.Name].Value) >= 100
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(getgenv().save)
+                            game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild(gun.Name))
+                        end
+                    end
+                else
+                    game.ReplicatedStorage.MainEvent:FireServer("Reload", gun)
+                    repeat wait() until gun.Ammo ~= 0
+            end
+        end
         end
         game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
     end
