@@ -46,11 +46,9 @@ local Players = game.Players
             player.Character.PrimaryPart.RotVelocity = vectorZero
             player.Character.HumanoidRootPart.CFrame = CFrame.new(OldFlingPos) * CFrame.Angles(math.rad(0),math.rad(137.92),math.rad(0))
         end;
-game:GetService("RunService").Heartbeat:Connect(function()
-if getgenv().FlingAll == true then
+
         Start()	
-else
+repeat wait() until getgenv().FlingAll = false
+
         Pause()
 	game.Workspace:FindFirstChildWhichIsA('Camera').CameraSubject = game.Players.LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid')
-end
-end)
