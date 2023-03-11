@@ -67,7 +67,6 @@ game:GetService("RunService").Heartbeat:Connect(function()
 				end
         end
         game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-    end
 end)
 setfflag("HumanoidParallelRemoveNoPhysics", "False")
 setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False") 
