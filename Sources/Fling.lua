@@ -48,7 +48,7 @@ local Players = game.Players
         end;
 
         Start()	
-repeat wait() until getgenv().FlingAll = false
+repeat wait() until getgenv().FlingAll == false
 
         Pause()
 	game.Workspace:FindFirstChildWhichIsA('Camera').CameraSubject = game.Players.LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid')
