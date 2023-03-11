@@ -23,6 +23,7 @@ local Players = game.Players
                     else
                         zchange = 0
                     end          
+			game.Workspace:FindFirstChildWhichIsA('Camera').CameraSubject = game.Players:FindFirstChild(getgenv().FlingAllTarget).Character.HumanoidRootPart	
                     if player.Character then
 						player.Character.Humanoid:ChangeState(11)
                         player.Character.HumanoidRootPart.CFrame = CFrame.new(FlingTorso.Position.X + math.random(-dis,dis) + xchange, FlingTorso.Position.Y, FlingTorso.Position.Z + math.random(-dis,dis) + zchange) * CFrame.Angles(math.rad(player.Character.HumanoidRootPart.Orientation.X + 350),math.rad(player.Character.HumanoidRootPart.Orientation.Y + 200),math.rad(player.Character.HumanoidRootPart.Orientation.Z + 240))
@@ -48,3 +49,4 @@ local Players = game.Players
         Start()	
         repeat wait() until getgenv().FlingAll == false
         Pause()
+game.Workspace:FindFirstChildWhichIsA('Camera').CameraSubject = game.Players.LocalPlayer.Character:FindFirstChildWhichIsA('Humanoid')
