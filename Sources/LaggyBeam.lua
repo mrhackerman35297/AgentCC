@@ -52,6 +52,7 @@ function FindTool()
             end
         end
     end
+    end
 game:GetService("RunService").Heartbeat:Connect(function()
         if game.Players[getgenv().Beam].Character:FindFirstChildWhichIsA('Humanoid') then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[getgenv().Beam].Character.HumanoidRootPart.CFrame * CFrame.new(0,9,9)
