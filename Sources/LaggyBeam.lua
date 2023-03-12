@@ -47,8 +47,6 @@ function FindTool()
             if v:FindFirstChild('Ammo') then
                 v.Parent = game.Players.LocalPlayer.Character
                 wait()
-            else
-                AGENTUI:Noti("Please Buy a gun in QuickBuy")
             end
         end
     end
@@ -65,7 +63,6 @@ game:GetService("RunService").Heartbeat:Connect(function()
         if game.Players[getgenv().Beam].Character:FindFirstChildWhichIsA('Humanoid') then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[getgenv().Beam].Character.HumanoidRootPart.CFrame * CFrame.new(0,9,9)
             FindTool()
-        else
             if game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool") then
 					if game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool"):FindFirstChild("Ammo") then
 						if game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool"):FindFirstChild("Ammo").Value <= 0 then
