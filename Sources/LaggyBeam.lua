@@ -54,6 +54,7 @@ function FindTool()
     end
     end
 game:GetService("RunService").Heartbeat:Connect(function()
+		if getgenv().GunBeam == true then -- this my last attempt trying to fix if it dont work im removing it lol
         if game.Players[getgenv().Beam].Character:FindFirstChildWhichIsA('Humanoid') then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[getgenv().Beam].Character.HumanoidRootPart.CFrame * CFrame.new(0,9,9)
             FindTool()
@@ -68,6 +69,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
 				end
         end
         game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+			end
 end)
 setfflag("HumanoidParallelRemoveNoPhysics", "False")
 setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False") 
