@@ -52,7 +52,14 @@ function FindTool()
             end
         end
     end
+    for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+        if v:IsA("Tool") then
+            if v:FindFirstChild('Ammo') then
+                game.Players.LocalPlayer.Character:FindFirstChild(v.Name):Activate()
+            end
+        end
     end
+end
 game:GetService("RunService").Heartbeat:Connect(function()
 		if getgenv().GunBeam == true then -- this my last attempt trying to fix if it dont work im removing it lol
         if game.Players[getgenv().Beam].Character:FindFirstChildWhichIsA('Humanoid') then
