@@ -34,16 +34,16 @@
              game:service"RunService".Stepped:Connect(function()
                     if getgenv().CFrameWalk == true then
                         if Actions["W"] == 1 then
-                            player.Character.HumanoidRootPart.CFrame=player.Character.HumanoidRootPart.CFrame*CFrame.new(0,0,-speed)
+                            player.Character.HumanoidRootPart.CFrame=player.Character.HumanoidRootPart.CFrame*CFrame.new(0,0,tonumber(-speed))
                         end
                         if Actions["S"] == 1 then
-                            player.Character.HumanoidRootPart.CFrame=player.Character.HumanoidRootPart.CFrame*CFrame.new(0,0,speed)
+                            player.Character.HumanoidRootPart.CFrame=player.Character.HumanoidRootPart.CFrame*CFrame.new(0,0,tonumber(speed))
                         end
                         if Actions["A"] == 1 then
-                            player.Character.HumanoidRootPart.CFrame=player.Character.HumanoidRootPart.CFrame*CFrame.new(-speed,0,0)
+                            player.Character.HumanoidRootPart.CFrame=player.Character.HumanoidRootPart.CFrame*CFrame.new(tonumber(-speed),0,0)
                         end
                         if Actions["D"] == 1 then
-                            player.Character.HumanoidRootPart.CFrame=player.Character.HumanoidRootPart.CFrame*CFrame.new(speed,0,0)
+                            player.Character.HumanoidRootPart.CFrame=player.Character.HumanoidRootPart.CFrame*CFrame.new(tonumber(speed),0,0)
                         end
                     end
                 end)
