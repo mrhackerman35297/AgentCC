@@ -5,6 +5,7 @@ _G.KEY = "q"
 		_G.Frame = Vector3.new(0, 0.53, 0)
 		local L_76_ = game:GetService "Workspace".CurrentCamera
 		getgenv().L_77_ = nil
+getgenv().Dotbubletarg = nil
 		local L_78_ = false
 		local L_79_ = nil
 		local L_80_ = game.Players.LocalPlayer:GetMouse()
@@ -93,9 +94,11 @@ end)
 					L_78_ = false
 					TextLabel.TextColor3 = getgenv().Color
 					TextLabel.Text = "------"
+			getgenv().Dotbubletarg = nil
 				else
 					L_78_ = true
 					L_77_ = getClosestPlayerToCursor()
+					getgenv().Dotbubletarg = L_77_.Name
 					TextLabel.TextColor3 = getgenv().Color
 					TextLabel.Text = L_77_.Character.Humanoid.DisplayName
 					TextLabel.Visible = true
