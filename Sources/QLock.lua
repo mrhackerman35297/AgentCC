@@ -91,11 +91,10 @@ end)
 					return
 				end
 				if L_78_ then
-					getgenv().Dotbubletar = nil
+					getgenv().Dotbubletarg = nil
 					L_78_ = false
 					TextLabel.TextColor3 = getgenv().Color
 					TextLabel.Text = "------"
-			getgenv().Dotbubletarg = nil
 				else
 					L_78_ = true
 					L_77_ = getClosestPlayerToCursor()
