@@ -1,6 +1,6 @@
            local player = game.Players.LocalPlayer
         local UIS = game:service"UserInputService"
-        local speed = 1
+       getgenv().Speed = 1
         local Actions = {W=0,S=0,A=0,D=0}
         
         UIS.InputBegan:Connect(function(key)
