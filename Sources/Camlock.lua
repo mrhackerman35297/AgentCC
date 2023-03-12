@@ -1,4 +1,4 @@
-local Toggle_Key = "e"
+getgenv().Toggle_Key = "e"
 local Rejoin_Key = "="
 local Prediction = .157 
 local Y_Axis_Aim_Height = -1
