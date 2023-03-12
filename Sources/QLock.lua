@@ -91,6 +91,7 @@ end)
 					return
 				end
 				if L_78_ then
+					getgenv().Dotbubletar = nil
 					L_78_ = false
 					TextLabel.TextColor3 = getgenv().Color
 					TextLabel.Text = "------"
