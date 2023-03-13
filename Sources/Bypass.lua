@@ -158,7 +158,7 @@ xpcall(function()
         setfflag("HumanoidParallelRemoveNoPhysics", "False")
         setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")      
 if not hookmetamethod then 
-		return notify('Incompatible Exploit','Your exploit does not support this command (missing hookmetamethod)')
+		return
 end
 Players = game:GetService("Players")
 	local LocalPlayer = Players.LocalPlayer
