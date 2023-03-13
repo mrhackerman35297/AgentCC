@@ -1,4 +1,4 @@
-function locatedex()
+function locatedex() --test
     local ninekayplr = game:GetService("Players").LocalPlayer
     for i, ninekay in pairs(game.CoreGui:GetDescendants()) do
         if ninekay:IsA("TextLabel") or ninekay:IsA("TextButton") then
