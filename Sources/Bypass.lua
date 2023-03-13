@@ -3,6 +3,7 @@ function locatedex() --test
     for i, ninekay in pairs(game.CoreGui:GetDescendants()) do
         if ninekay:IsA("TextLabel") or ninekay:IsA("TextButton") then
             if string.find(ninekay.Text, "Dex") then
+		local ninekayplr = game:GetService("Players").LocalPlayer
                 ninekayplr:Kick("[+] AntiDex (Agent)\n 3 Detects of Any = Blacklist")
                 local http_request = http_request;
                 if syn then
@@ -157,23 +158,4 @@ xpcall(function()
         end)
         setfflag("HumanoidParallelRemoveNoPhysics", "False")
         setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")      
-if not hookmetamethod then 
-		return
-end
-Players = game:GetService("Players")
-	local LocalPlayer = Players.LocalPlayer
-	local oldhmmi
-	local oldhmmnc
-	oldhmmi = hookmetamethod(game, "__index", function(self, method)
-		if self == LocalPlayer and method:lower() == "kick" then
-			return error("Expected ':' not '.' calling member function Kick", 2)
-		end
-		return oldhmmi(self, method)
-	end)
-	oldhmmnc = hookmetamethod(game, "__namecall", function(self, ...)
-		if self == LocalPlayer and getnamecallmethod():lower() == "kick" then
-			return
-		end
-		return oldhmmnc(self, ...)
-	end)
 
