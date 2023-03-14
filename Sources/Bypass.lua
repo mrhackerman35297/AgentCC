@@ -1,5 +1,5 @@
 if syn then
-loadstring(game:HttpGet('https://raw.githubusercontent.com/mrhackerman35297/AgentCC/main/Sources/GlobalChat'))()
+-- offline until further testing loadstring(game:HttpGet('https://raw.githubusercontent.com/mrhackerman35297/AgentCC/main/Sources/GlobalChat'))()
 end
 function AntiCheat()
   wait(1)
