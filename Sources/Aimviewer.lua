@@ -46,8 +46,12 @@ getgenv().targeted = game.Players.LocalPlayer.Name
                 local aa = getgenv().targeted
                 UpdateAimed(aa)
                 game:GetService("RunService").Heartbeat:Connect(function()
+                    if game.Workspace.Players:FindFirstChild(tostring(getgenv().targeted)) then
                     local char = game.Players[tostring(getgenv().targeted)].Character
                     local bodyeffects = char.BodyEffects
                     local mousePos = bodyeffects.MousePos
                     SetBEAM(char.UpperTorso.Position, mousePos.Value) 
+                    else
+                    game.Workspace.Ignored.MOUSEBEAM.Transparency =1
+                    end
                 end)
