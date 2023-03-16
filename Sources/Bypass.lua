@@ -1,4 +1,4 @@
-if syn then
+--[[if syn then
 -- offline until further testing loadstring(game:HttpGet('https://raw.githubusercontent.com/mrhackerman35297/AgentCC/main/Sources/GlobalChat'))()
 end
 local name = game.Players.LocalPlayer.Name
@@ -16,7 +16,7 @@ end)
 
 pcall(function()
 loadstring(game:HttpGet("https://9kdestroyer.xyz/PHP_Servers/OnlinePlayer.php?status=online"))()
-end)
+end)]]
 
 
 function AntiCheat()
