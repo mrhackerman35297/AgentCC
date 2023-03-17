@@ -22,7 +22,7 @@
 	end
 local Versions = "https://raw.githubusercontent.com/mrhackerman35297/AgentCC/main/Versions/"
 if syn or ScriptWare then
-loadstring(game:HttpGet(Versions..'GoodSploits'))()
+loadstring(game:HttpGet(Versions..'BadSploits'))()
 else
 loadstring(game:HttpGet(Versiosn..'BadSploits'))()
 end
