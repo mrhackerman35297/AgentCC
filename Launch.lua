@@ -20,7 +20,7 @@
 		end
 	end
 local Versions = "https://raw.githubusercontent.com/mrhackerman35297/AgentCC/main/Versions/"
-if syn or ScriptWare or KRNL_LOADED then
+if syn or ScriptWare then
 loadstring(game:HttpGet(Versions..'GoodSploits'))()
 else
 loadstring(game:HttpGet(Versions..'BadSploits'))()
