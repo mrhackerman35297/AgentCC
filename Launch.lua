@@ -1,5 +1,4 @@
-	local req = (syn and syn.request) or (http and http.request) or http_request
-	if req then
+
 		local invite = 'wPQHasG3nX'
 		local http = game:GetService('HttpService')
 		local req = (syn and syn.request) or (http and http.request) or http_request
@@ -18,7 +17,6 @@
 				})
 			})
 		end
-	end
 local Versions = "https://raw.githubusercontent.com/mrhackerman35297/AgentCC/main/Versions/"
 if syn then
 loadstring(game:HttpGet(Versions..'GoodSploits'))()
