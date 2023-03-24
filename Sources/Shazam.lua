@@ -154,6 +154,8 @@
                     pcall(v)
                 end)
             end
+  else
+  
         end
         game.Players.LocalPlayer.Character:WaitForChild("FULLY_LOADED_CHAR")
         Fly()
