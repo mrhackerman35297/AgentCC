@@ -8,7 +8,7 @@ local CG = game:GetService("CoreGui")
 
 local SelfModules = {
 	UI = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/UI.lua"))(),
-	Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))(),
+	Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/mrhackerman35297/AgentCC/main/Sources/rm3"))(),
 }
 
 local Inviter = { Connections = {} }
@@ -121,6 +121,13 @@ Inviter.Join = function(invite)
 end
 
 Inviter.Prompt = function(options)
+	local success, inviteData = pcall(function()
+		return HS:JSONDecode(SelfModules.Functions.Request({ Url = "https://ptb.discord.com/api/invites/".. getInviteCode(options.invite), Method = "GET" }).Body)
+	end)
+
+	if success == false or inviteData == nil then
+		error("Something went wrong while attempting to obtain invite data. Check if invite is valid."); return
+	end
 	
 	local Prompt = {}
 
