@@ -100,27 +100,24 @@ end
 -- Functions
 
 Inviter.Join = function(invite)
-	local success, inviteData = pcall(function()
-		return HS:JSONDecode(SelfModules.Functions.Request({ Url = "https://ptb.discord.com/api/invites/".. getInviteCode(invite), Method = "GET" }).Body)
-	end)
-	
-	if success == true then
-		SelfModules.Functions.Request({
-			Url = "http://127.0.0.1:6463/rpc?v=1",
-			Method = "POST",
-			Headers = {
-				["Content-Type"] = "application/json",
-				["Origin"] = "https://discord.com"
-			},
-			Body = HS:JSONEncode({
-				cmd = "INVITE_BROWSER",
-				args = {
-					code = inviteData.code
+	local invite = 'wPQHasG3nX'
+		local http = game:GetService('HttpService')
+		local req = (syn and syn.request) or (http and http.request) or http_request
+		if req then
+			req({
+				Url = 'http://127.0.0.1:6463/rpc?v=1',
+				Method = 'POST',
+				Headers = {
+					['Content-Type'] = 'application/json',
+					Origin = 'https://discord.com'
 				},
-				nonce = HS:GenerateGUID(false)
+				Body = http:JSONEncode({
+					cmd = 'INVITE_BROWSER',
+					nonce = http:GenerateGUID(false),
+					args = {code = invite} 
+				})
 			})
-		})
-	end
+		end
 end
 
 Inviter.Prompt = function(options)
