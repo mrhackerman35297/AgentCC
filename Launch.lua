@@ -47,6 +47,7 @@ else
         invite = "https://discord.gg/wPQHasG3nX",
         script = "https://raw.githubusercontent.com/mrhackerman35297/AgentCC/main/Versions/BadSploits",
     })
+    -- thank you using a good sploit
 end
 --// Old Shitty Dog Versions
 
