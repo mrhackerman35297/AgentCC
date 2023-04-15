@@ -1,4 +1,7 @@
-if FLUXUS_LOADED then
+       getgenv().Invite = 'wPQHasG3nX'
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/mrhackerman35297/AgentCC/main/Versions/BadSploits"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/mrhackerman35297/AgentCC/main/Sources/Discord"))()
+--[[if FLUXUS_LOADED then
     getgenv().Invite = 'wPQHasG3nX'
     loadstring(game:HttpGet("https://raw.githubusercontent.com/mrhackerman35297/AgentCC/main/Versions/BadSploits"))()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/mrhackerman35297/AgentCC/main/Sources/Discord"))()
@@ -16,7 +19,7 @@ else
         script = "https://raw.githubusercontent.com/mrhackerman35297/AgentCC/main/Versions/BadSploits",
     })
     -- thank you using a good sploit
-end
+end]]
 --// Old Shitty Dog Versions
 
 --loadstring(game:HttpGet("https://raw.githubusercontent.com/mrhackerman35297/AgentCC/main/Versions/BadSploits"))()
