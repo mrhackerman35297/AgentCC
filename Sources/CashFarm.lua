@@ -1,95 +1,109 @@
---// Ruzzell's OP Da Hood Autofarm
---// I DID NOT MAKE THIS CREDITS TO RUZZEL (I ONLY UPDATED IT TO DA HOODS NEW ANTICHEAT)
---// CUSTOMIZATION \-- 
-getgenv().CashFarm = true --make true if you wanna atm farm, else make false 
-local plr = game.Players.LocalPlayer
-repeat wait() until plr.Character:FindFirstChild("FULLY_LOADED_CHAR")
-
-for i,v in pairs(game.Workspace:GetDescendants()) do 
-    if v:IsA("Seat") then 
-        v:Destroy() 
-    end 
+getgenv().CashFarm = false
+local Cashiers = game.Workspace.Cashiers
+function checkTool(tool)
+    for _,item in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+        if item.Name == tool then
+            game.Players.LocalPlayer.Character:WaitForChild("Humanoid")
+            local Humanoid = game.Players.LocalPlayer.Character:WaitForChild("Humanoid")
+            Humanoid:EquipTool(item)
+        end
+    end
 end
-
-function DeleteAntiCheat() 
-    for i,v in pairs(plr.Character:GetChildren()) do 
-        if v.ClassName == "Script" and v.Name ~= "Health" then 
-            v:Destroy() 
-        end 
-    end 
+function find(path, child)
+    _G.Found = nil
+    if path:FindFirstChild(child) then
+        _G.Found = true
+    else
+        _G.Found = false
+    end
 end
-
-plr.CharacterAdded:Connect(function(character) 
-    repeat wait() 
-    until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("FULLY_LOADED_CHAR") DeleteAntiCheat() wait(1) reset = false end) DeleteAntiCheat()
-
-local reset = false 
-spawn(function() 
-    while wait() do 
-        pcall(function()
-            if plr.Character.Humanoid.Health <= 0 then 
-                reset = true 
-            end 
-        end) 
-    end 
-end)
-
-game:GetService("Players").LocalPlayer.Idled:connect(function() 
-    game:GetService("VirtualUser"):Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame) 
-    wait(1) 
-    game:GetService("VirtualUser"):Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame) 
-end)
-
-
-while wait(0.5) do 
-    if getgenv().CashFarm == true then 
-        for i,v in pairs(game.Workspace.Cashiers:GetChildren()) do 
-            if v.Humanoid.Health > 0 then 
-                wait(5) 
-                spawn(function() 
-                    while v.Humanoid.Health > 0 do 
-                        wait() 
-                        pcall(function()
-                    if getgenv().CashFarm == true then 
-                            plr.Character.HumanoidRootPart.CFrame = v.Head.CFrame * CFrame.new(0, -2, 1.5)
+function findCash(cashier, radius)
+    for _,x in pairs(game.Workspace.Ignored.Drop:GetChildren()) do
+        if x.Name == "MoneyDrop" then
+            if (cashier.Head.Position - x.Position).Magnitude < radius then
+                local FinalProduct = (cashier.Head.Position - x.Position).Magnitude
+                x.Name = "CashDrop"
+            else
+                x.Name = "e"
+            end
+        else
+            x.Name = "e"
+        end
+    end
+end
+function grabCash()
+    repeat wait()
+        find(game.Workspace.Ignored.Drop, "CashDrop")
+        if _G.Found == true then
+            game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(game.Workspace.Ignored.Drop:FindFirstChild("CashDrop").Position)
+            if game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.Y < 12 then
+                game.Workspace.Ignored.Drop:FindFirstChild("CashDrop"):Destroy()
+            end
+            wait(.2)
+            if game.Workspace.Ignored.Drop:FindFirstChild("CashDrop") then
+                if _G.LastPickupPos == Vector3.new(0,0,0) then
+                    _G.LastPickupPos = game.Workspace.Ignored.Drop:FindFirstChild("CashDrop").Position
+                    fireclickdetector(game.Workspace.Ignored.Drop:FindFirstChild("CashDrop").ClickDetector)
+                else
+                    if (_G.LastPickupPos - game.Workspace.Ignored.Drop:FindFirstChild("CashDrop").Position).magnitude < 25 then
+                        _G.LastPickupPos = game.Workspace.Ignored.Drop:FindFirstChild("CashDrop").Position
+                        fireclickdetector(game.Workspace.Ignored.Drop:FindFirstChild("CashDrop").ClickDetector)
+                    else
+                        break;
                     end
-                        end) 
-                    end 
-                end) 
-                repeat 
+                end
+            else
+                -- do nothing
+            end
+        else
+            break;
+        end
+    until _G.NeverDone == true
+end
+function Charge()
+    local MainEvent = game.ReplicatedStorage:WaitForChild("MainEvent")
+    MainEvent:FireServer("ChargeButton")
+end
+function SitCheck()
+    local Character = game.Players.LocalPlayer.Character
+    local Humanoid = Character:WaitForChild("Humanoid")
+    if Humanoid.Sit == true then
+        Character:MoveTo(Vector3.new(100,100,100))
+        Humanoid.Sit = false
+    else
+        --do nothing
+    end
+end
+
+while wait() do
+    if getgenv().CashFarm == true then
+        checkTool("Combat")
+        for _,v in pairs(Cashiers:GetChildren()) do
+            if getgenv().CashFarm == false then
+                break;
+            end
+            local CurrentATM = v
+            if v.Humanoid.Health > 0 and v.Open.CFrame ~= CFrame.new(-624.59845, 22.8500214, -286.658203, -1, 0, 0, 0, 1, 0, 0, 0, -1) then
+                checkTool("Combat")
+                repeat
                     if getgenv().CashFarm == true then
-                    pcall(function()
-                        plr.Character.Humanoid:EquipTool(plr.Backpack.Combat)
-                    end) 
-                    wait(0.1) 
-                    pcall(function() 
-                        plr.Character.Combat:Activate() 
-                        wait(2) 
-                        plr.Character.Combat:Deactivate() 
-                        wait(1) 
-                    end) 
-                        end
-                until v.Humanoid.Health <= 0  or getgenv().CashFarm == false
-                wait(0.1)
-                for ii,vv in pairs(game.Workspace.Ignored.Drop:GetChildren()) do 
-                    if vv.Name ~= "MoneyDrop" then 
-                        continue 
-                    end 
-                    if (plr.Character.HumanoidRootPart.Position - vv.Position).Magnitude > 12 then 
-                        continue 
-                    end 
-                    vv.Name = "Grabbing" 
-                    vv.Anchored = true 
-                    while game.Workspace.Ignored.Drop:FindFirstChild("Grabbing") do 
-                        wait() pcall(function() 
-                            plr.character.HumanoidRootPart.CFrame = vv.CFrame 
-                            if not reset then 
-                                fireclickdetector(vv.ClickDetector) 
-                            end 
-                        end) 
-                    end 
-                end 
-            end 
-        end 
-    end 
+                        checkTool("Combat")
+                        wait()
+                        Charge()
+                        game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = v.Open.CFrame
+                    elseif getgenv().CashFarm == false then
+                        wait()
+                        break;
+                    end
+                until v.Humanoid.Health <= 0
+                _G.LastPickupPos = game.Players.LocalPlayer.Character.Head.Position
+                wait(2.4)
+                findCash(CurrentATM, 20)
+                wait(.2)
+                grabCash()
+            else
+                wait()
+            end
+        end
+    end
 end
