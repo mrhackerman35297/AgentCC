@@ -218,6 +218,7 @@ end)
 				end
 			end
 		)
+function start()
 		while wait() do
 			if
 				getClosestPlayerToCursor().Character.Humanoid.Jump == true and
@@ -234,3 +235,6 @@ end)
 				_G.Frame = Vector3.new(0, 0.53, 0)
 			end
 		end
+	end
+start()
+game.Players.LocalPlayer.CharacterAdded:Connect(function() task.wait(.1) start() end)
