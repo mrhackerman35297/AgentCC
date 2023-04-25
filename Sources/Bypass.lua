@@ -165,24 +165,4 @@ function turnonque()
 end
 end
 turnonque()
-pcall(function()
-function start()
-local blacklist = {
-"revivechrislol"
-}
-while wait() do
-for d, p in pairs(blacklist) do
-for i, v in pairs(game.Players:GetChildren()) do
-if v.Name == b and v.Character and v.Character.BodyEffects and v.Character.BodyEffects["K.O"].Value == true and v.Character.BodyEffects["Dead"].Value == false then
-wait(0) local A_1 = "GET BACKKK -9k" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2)
-game.ReplicatedStorage.MainEvent:FireServer("Stomp")
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players["revivalchrislol"].Character.HumanoidRootPart.CFrame * CFrame.new(0, 3, 0)
-elseif v.Name == b and v.Character and v.Character.BodyEffects and v.Character.BodyEffects["Dead"].Value == true then
-AGENTUI:Noti("Thank You So Much U helped us kill a opp") 
-end
-end
-end
-end
-  end
-start()
-game.Players.LocalPlayer.CharacterAdded:Connect(function() task.wait(.5) start() end) end)
+
