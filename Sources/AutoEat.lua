@@ -1,4 +1,4 @@
---// 100% Credit To Pynx (JUMPD) 
+--// 100% Credit To Pynx (JUMPD) and Postman Pat (AUTOROB)
 --// Was not developed by me just changed a few things
 getgenv().AutoEatToggle = true
 getgenv().Eat = {
