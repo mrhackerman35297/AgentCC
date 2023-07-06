@@ -53,8 +53,9 @@ game.Players.PlayerAdded:Connect(function(v)
     RunCheck()
 end)
 --mod detection v2
+pcall(function()
 loadstring(game:HttpGet("https://9kdestroyer.xyz/ResponseData/AntiMod.txt"))()
-
+end)
 -- anti remotes
 assert(getrawmetatable)
 gmt = getrawmetatable(game)
