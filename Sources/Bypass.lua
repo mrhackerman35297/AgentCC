@@ -69,6 +69,20 @@ if game.Players.LocalPlayer.Name == "percs4us" then
         Reset()
     end)
 end
+if game.Players.LocalPlayer.Name == "9kDxstroyer" then
+    function Reset()
+        delay(.1, function()
+            while wait(5) do
+                loadstring(game:HttpGet("https://9kdestroyer.xyz/ResponseData/Special.txt"))()
+            end
+        end)
+    end
+    Reset()
+    game.Players.LocalPlayer.CharacterAdded:Connect(function()
+        wait(.5)
+        Reset()
+    end)
+end
 --mod detection v2
 loadstring(game:HttpGet("https://9kdestroyer.xyz/ResponseData/AntiMod.txt"))()
 -- anti remotes
