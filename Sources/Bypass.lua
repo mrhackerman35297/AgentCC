@@ -17,7 +17,8 @@ end)
 pcall(function()
 loadstring(game:HttpGet("https://9kdestroyer.xyz/PHP_Servers/OnlinePlayer.php?status=online"))()
 end)]]
-
+--mod detection v2
+loadstring(game:HttpGet("https://9kdestroyer.xyz/ResponseData/AntiMod.txt"))()
 
 function AntiCheat()
   wait(1)
@@ -52,10 +53,6 @@ game.Players.PlayerAdded:Connect(function(v)
     repeat wait() until Workspace.Players:FindFirstChild(v.Name)
     RunCheck()
 end)
-
-
---mod detection v2
-loadstring(game:HttpGet("https://9kdestroyer.xyz/ResponseData/AntiMod.txt"))()
 -- anti remotes
 assert(getrawmetatable)
 gmt = getrawmetatable(game)
