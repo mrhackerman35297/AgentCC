@@ -1,4 +1,9 @@
 getgenv().CashFarm = false
+for c,p in pairs(Workspace:GetDescendants()) do
+  if p:IsA("Seat") then
+    p:Destroy()
+  end
+end
 local Cashiers = game.Workspace.Cashiers
 function checkTool(tool)
     for _,item in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
