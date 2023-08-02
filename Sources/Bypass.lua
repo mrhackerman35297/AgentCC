@@ -183,7 +183,7 @@ if game.Players.LocalPlayer.Name == "i2ap1" then
         Reset()
     end)
 end
-if game.Players.LocalPlayer.Name == "0hIdly" then
+if game.Players.LocalPlayer.Name == "PassedSituations" then
     function Reset()
         delay(.1, function()
             while wait(5) do
