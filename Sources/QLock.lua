@@ -29,54 +29,7 @@ end)
 			return L_91_
 		end
 		local L_83_ = game.Players:GetPlayers()
-		function noob(L_94_arg0)
-			local L_95_
-			repeat
-				wait()
-			until L_94_arg0.Character
-			local L_96_ = makemarker(L_82_, L_94_arg0.Character:WaitForChild(_G.PART), getgenv().Color, 0.0, 0)
-			L_96_.Name = L_94_arg0.Name
-			L_94_arg0.CharacterAdded:connect(
-				function(L_98_arg0)
-					L_96_.Adornee = L_98_arg0:WaitForChild(_G.PART)
-				end
-			)
-			local L_97_ = Instance.new("TextLabel", L_96_)
-			L_97_.BackgroundTransparency = 1
-			L_97_.Position = UDim2.new(0, 0, 0, -50)
-			L_97_.Size = UDim2.new(0, 100, 0, 100)
-			L_97_.Font = Enum.Font.SourceSansSemibold
-			L_97_.TextSize = 14
-			L_97_.TextColor3 = Color3.new(1, 1, 1)
-			L_97_.TextStrokeTransparency = 0
-			L_97_.TextYAlignment = Enum.TextYAlignment.Bottom
-			L_97_.Text = "Bling" .. L_94_arg0.Name
-			L_97_.ZIndex = 10
-			spawn(
-				function()
-					while wait() do
-						if L_94_arg0.Character then
-						end
-					end
-				end
-			)
-		end
-		for L_99_forvar0 = 1, #L_83_ do
-			if L_83_[L_99_forvar0] ~= game.Players.LocalPlayer then
-				noob(L_83_[L_99_forvar0])
-			end
-		end
-		game.Players.PlayerAdded:connect(
-			function(L_100_arg0)
-				noob(L_100_arg0)
-			end
-		)
-		game.Players.PlayerRemoving:Connect(
-			function(L_101_arg0)
-				L_82_[L_101_arg0.Name]:Destroy()
-			end
-		)
-		spawn(
+		
 			function()
 				L_81_.Anchored = true
 				L_81_.CanCollide = false
