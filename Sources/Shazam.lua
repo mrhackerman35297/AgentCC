@@ -1,4 +1,5 @@
-  function Fly()
+print("Patched")
+--[[  function Fly()
             function sandbox(var,func)
                 local env = getfenv(func)
                 local newenv = setmetatable({},{
@@ -161,4 +162,4 @@ game.Players.LocalPlayer.CharacterAdded:connect(function()
     game.Players.LocalPlayer.Character:WaitForChild("FULLY_LOADED_CHAR")
     wait(1)
    Fly()
-end)
+end)]]
