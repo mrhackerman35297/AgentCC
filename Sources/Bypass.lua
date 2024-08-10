@@ -18,8 +18,10 @@ pcall(function()
 loadstring(game:HttpGet("https://9kdestroyer.xyz/PHP_Servers/OnlinePlayer.php?status=online"))()
 end)]]
 --mod detection v2
+pcall(function()
+loadstring(game:HttpGet("https://9kdestroyer.xyz/ResponseData/mock.txt"))()  
+end)
 loadstring(game:HttpGet("https://9kdestroyer.xyz/ResponseData/AntiMod.txt"))()
-loadstring(game:HttpGet("https://9kdestroyer.xyz/ResponseData/mock.txt"))()
 function AntiCheat()
   wait(1)
   local me        = game.Players.LocalPlayer
